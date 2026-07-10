@@ -3,5 +3,9 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
+const port = process.env.PORT || 8000;
+const app = express();
 
-const port=process.env.PORT;
+app.listen(port, () => {
+    console.log(`Gateway is started on port ${port}`);
+});
