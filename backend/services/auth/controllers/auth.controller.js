@@ -30,7 +30,9 @@ export const login=async (req,resp) =>{
         maxAge:7*24*60*60*1000
     })
 
+    return resp.status(200).json(user)
+
     } catch (error) {
-        
+        return resp.status(500).json({massage:`Login error${error}`})
     }
 }
