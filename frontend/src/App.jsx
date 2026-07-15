@@ -5,6 +5,7 @@ function App() {
 
 const googleLogin = async ()=>{
  const data = await signInWithPopup(auth, googleProvider)
+ 
  console.log(data)
 }
 
