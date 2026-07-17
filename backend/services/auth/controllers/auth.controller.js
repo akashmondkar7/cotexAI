@@ -2,6 +2,8 @@ import {} from "firebase-admin/auth"
 import App from "../../../../frontend/src/App"
 import User from "../model/user.model"
 import { createConnection } from "mongoose"
+import redis from "../../../shared/redis/redis.js"
+import { json } from "express"
 export const login=async (req,resp) =>{
     try {
         const {token}=req.body
@@ -22,6 +24,13 @@ export const login=async (req,resp) =>{
       }
 
     const sessionId=crypto.randomUUID()
+
+   await redis.set(`session-${sessionId}`,json.stringify({
+    userID:user._id,
+    name:user.name,
+    email:user.email,
+    avatar:user.avatar
+   }),"EX",7*24*60*60)
 
     resp.cookie("session",sessionId,{
         httpOnly:true,
