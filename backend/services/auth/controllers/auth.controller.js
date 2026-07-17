@@ -46,3 +46,17 @@ export const login=async (req,resp) =>{
     }
 }
 
+export const logout =async (req,resp)=>{
+  try {
+    const sessionId=req.cookies?.session
+    await redis.del(`session-${sessionId}`)
+
+    resp.clearCookie("session")
+        return resp.status(200).json({massage:"logout succesfully"})
+
+  } catch (error) {
+    return resp.status(500).json({massage:` ${error}`})
+
+  }
+}
+
