@@ -19,8 +19,8 @@ app.use(cookieParser())
 
 
 
-app.use("/auth",proxy(process.env.AUTH_SERVICE))
-app.use("/me",protect,getCurrentUser)
+app.use("/api/auth",proxy(process.env.AUTH_SERVICE))
+app.use("/api/me",protect,getCurrentUser)
 app.get("/",(req,resp)=>{
   resp.json({message:"hello from gateway"})
 })
