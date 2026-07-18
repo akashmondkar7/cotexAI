@@ -32,13 +32,13 @@ const Home = () => {
               Please login to continue using the app.
             </p>
           </div>
-          <button onClick={googleLogin} className=" w-full flex items-center justify-center gap-3 py-[11px] rounded-xl text-sm font-medium text-white bg-white hover:bg-gray-200 hover:to-gray-200 transition-all duration-150 cursor-pointer">
-            <FcGoogle size={15} className="text-white" />
+          <button onClick={googleLogin} className=" w-full flex items-center justify-center gap-3 py-[11px] rounded-xl text-sm font-medium text-slate-600 bg-white hover:bg-gray-200 hover:to-gray-200 transition-all duration-150 cursor-pointer">
+            <FcGoogle size={15} />
             Continue with Google
           </button>
         </div>
       </div>
-    </div>
+    </div>  
   );
 };
 
