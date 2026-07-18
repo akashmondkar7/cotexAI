@@ -19,3 +19,5 @@ const protect=async (req,resp,next) => {
 
     }
 }
+
+export default protect ;
