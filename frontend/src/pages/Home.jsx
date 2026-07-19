@@ -4,6 +4,8 @@ import api from "../utils/axios.js";
 import { FcGoogle } from "react-icons/fc";
 
 const Home = () => {
+
+
   const handleLogin = async (token) => {
     try {
       const { data } = await api.post("/api/auth/login", { token });
