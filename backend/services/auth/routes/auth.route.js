@@ -1,11 +1,21 @@
-import express from 'express'
-import { login,logout } from '../controllers/auth.controller.js'
+import express from "express";
 
-const router=express.Router()
+import {
+  deductCredits,
+  login,
+  logout,
+  updatePlan,
+} from "../controllers/auth.controllers.js";
 
+const router = express.Router();
 
-router.post("/login",login)
-router.get("/logout",logout)
+router.post("/login", login);
+router.get("/logout", logout);
+router.patch("/internal/update-plan", updatePlan);
+router.patch(
+  "/internal/deduct-credits",
 
+  deductCredits,
+);
 
-export default router
+export default router;

@@ -1,7 +1,26 @@
-export const getCurrentUser= async (req,resp) => {
-    try {
-        return resp.status(200).json(req.user)
-    } catch (error) {
-         return resp.status(500).json({massage:`get current user error ${error}`})
-    }
+export const getCurrentUser =
+async(req,res)=>{
+
+ try{
+
+  return res.status(200).json({
+
+   success:true,
+
+   user:req.user
+
+  });
+
+ }catch(error){
+
+  return res.status(500).json({
+
+   success:false,
+
+   message:error.message
+
+  });
+
+ }
+
 }
